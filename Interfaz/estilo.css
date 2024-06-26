@@ -1,11 +1,16 @@
 header{
-  background-color: aqua;
-  text-align: left;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: rgb(137, 192, 192);
+ 
+  font-family: "Amazon Ember",sans-serif;
   border: 2px solid rgb(0, 0, 0);
   height:50px;
-  font-size: 32px;
+  font-size: 22px;
   
+}
+#titulo{
+position: absolute;
+top: 21px;
+left: 61px;
 }
 #busqueda 
 {
@@ -15,32 +20,113 @@ height: 21.5px;
 top:21px;
 left:25%;
 background-color:#ffffff;
-border: 2px solid rgb(0, 0, 0);
+border: 2px solid #d5d9d9;
+border-radius: 8px;
 
 }
 #buscar{
-position: absolute;
-height: 28px; 
-top: 21px;
-left:1020px;
+  
+  position: absolute;
+  height: 28px; 
+  top: 21px;
+  left:1020px;
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100px;
 
-background-color:#ffffff;
-border: 2px solid rgb(0, 0, 0);
-}
-#login{
-    position: absolute;
-    height: 28px; 
-    top: 21px;
-    right:20px;
-   
-    background-color:#ffffff;
-    border: 2px solid rgb(0, 0, 0);
+  }
+  #buscar:hover{
+      background-color: #f7fafa;
+
+  }
+  #buscar:focus {
+    border-color: #008296;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    outline: 0;
+  }
+  #login{
+      position: absolute;
+      height: 28px; 
+      top: 21px;
+      right:20px;
+      background-color: #fff;
+      border: 1px solid #d5d9d9;
+      border-radius: 8px;
+      box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+      box-sizing: border-box;
+      color: #0f1111;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Amazon Ember",sans-serif;
+      font-size: 13px;
+      line-height: 29px;
+      padding: 0 10px 0 11px;
+      text-decoration: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      width: 100px;;
+      }
+      #login:hover{
+        background-color: #f7fafa;
+  
     }
-    #register{
-        position: absolute;
-        height: 28px; 
-        top: 21px;
-        right:120px;
-        background-color:#ffffff;
-        border: 2px solid rgb(0, 0, 0);
+    #login:focus {
+      border-color: #008296;
+      box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+      outline: 0;
+    }
+      #register{
+          position: absolute;
+          height: 28px; 
+          top: 21px;
+          right:140px;
+          background-color: #fff;
+          border: 1px solid #d5d9d9;
+          border-radius: 8px;
+          box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+          box-sizing: border-box;
+          color: #0f1111;
+          cursor: pointer;
+          display: inline-block;
+          font-family: "Amazon Ember",sans-serif;
+          font-size: 13px;
+          line-height: 29px;
+          padding: 0 10px 0 11px;
+          text-decoration: none;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          vertical-align: middle;
+          width: 100px;;
+          }
+          #register:hover{
+            background-color: #f7fafa;
+      
         }
+        #register:focus {
+          border-color: #008296;
+          box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+          outline: 0;
+        }
+#imagen1{
+  
+}
+
+
