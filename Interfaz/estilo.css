@@ -1,0 +1,46 @@
+header{
+  background-color: aqua;
+  text-align: left;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: 2px solid rgb(0, 0, 0);
+  height:50px;
+  font-size: 32px;
+  
+}
+#busqueda 
+{
+position: absolute;
+min-width:27%;
+height: 21.5px;
+top:21px;
+left:25%;
+background-color:#ffffff;
+border: 2px solid rgb(0, 0, 0);
+
+}
+#buscar{
+position: absolute;
+height: 28px; 
+top: 21px;
+left:1020px;
+
+background-color:#ffffff;
+border: 2px solid rgb(0, 0, 0);
+}
+#login{
+    position: absolute;
+    height: 28px; 
+    top: 21px;
+    right:20px;
+   
+    background-color:#ffffff;
+    border: 2px solid rgb(0, 0, 0);
+    }
+    #register{
+        position: absolute;
+        height: 28px; 
+        top: 21px;
+        right:120px;
+        background-color:#ffffff;
+        border: 2px solid rgb(0, 0, 0);
+        }
