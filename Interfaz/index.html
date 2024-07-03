@@ -1,33 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextGen Inicio</title>
+    <title>Flipcoin - Tu tienda online</title>
     <link rel="stylesheet" href="estilo.css">
+    <link rel="icon" href="coin.png">
 </head>
 <body>
-    <header><div id="titulo">NombreTienda</div>
-        
-        <label>
-            <input type="text"  id="busqueda">
-        </label>
-        <label>
-            <input type="button" value="Buscar" id="buscar">
-        </label>
-        <label>
-            <input type="button" value="Iniciar Sesion" id="login">
-        </label>
-        <label>
-            <input type="button" value="Registrarse" id="register">
-        </label>
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <img src="logo.png" alt="Flipcoin Logo" class="logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos...">
+                <button type="submit">Buscar</button>
+            </div>
+            <nav>
+                <ul class="right-menu">
+                    <li><a href="#"><img src="carrito.jpg" alt="Carrito" class="cart-icon"></a></li>
+                    <li><a href="#">Ingresar</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-<div id="Imagen1">
-    <img src="ms-180.jpg">
-</div>
-       
-      <script src="jquery-3.7.1.min.js"></script>
-      <script src="registro.js"></script>
-      <script src="iniciarSesion.js"></script>
+
+    <nav class="categories">
+        <div class="container">
+            <ul class="category-menu">
+                <li><a href="#">Electrónica</a></li>
+                <li><a href="#">Moda</a></li>
+                <li><a href="#">Hogar</a></li>
+                <li><a href="#">Juguetes</a></li>
+                <li><a href="#">Deportes</a></li>
+                <li><a href="#">Libros</a></li>
+                <li><a href="#">Belleza</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <h3>Envío rápido</h3>
+                <p>Recibe tus productos en tiempo récord.</p>
+            </div>
+            <div class="feature">
+                <h3>Seguridad</h3>
+                <p>Compras 100% seguras.</p>
+            </div>
+            <div class="feature">
+                <h3>Calidad</h3>
+                <p>Productos de alta calidad garantizados.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="container">
+            <article class="product">
+                <img src="producto1.png" alt="Producto 1" class="product-image">
+                <h3>Monitor Gaming</h3>
+                <p class="price">$250</p>
+                <p class="seller">Marca: ASUS</p>
+            </article>
+            <article class="product">
+                <img src="producto2.png" alt="Producto 2" class="product-image">
+                <h3>Teclado Mecánico</h3>
+                <p class="price">$50</p>
+                <p class="seller">Marca: Redragon</p>
+            </article>
+            <article class="product">
+                <img src="producto3.png" alt="Producto 3" class="product-image">
+                <h3>Mouse Inalámbrico</h3>
+                <p class="price">$65</p>
+                <p class="seller">Marca: Logitech</p>
+            </article>
+            <article class="product">
+                <img src="producto4.png" alt="Producto 4" class="product-image">
+                <h3>Audífonos Gaming</h3>
+                <p class="price">$120</p>
+                <p class="seller">Marca: HyperX </p>
+            </article>
+            <article class="product">
+                <img src="producto5.png" alt="Producto 5" class="product-image">
+                <h3>Celular</h3>
+                <p class="price">$600</p>
+                <p class="seller">Marca: Samsung</p>
+            </article>
+            <article class="product">
+                <img src="producto6.png" alt="Producto 6" class="product-image">
+                <h3>PlasyStation5</h3>
+                <p class="price">U$S800</p>
+                <p class="seller">Marca: Sony</p>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Flipcoin. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
