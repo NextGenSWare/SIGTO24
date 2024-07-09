@@ -1,4 +1,4 @@
-/* Estilo de la pagina de Hogar */
+/* Estilo de la pagina de JUEGUETES */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -104,8 +104,39 @@ nav ul li a {
     color: #000000; /* Cambia el color del texto al pasar el mouse */
 }
 
-.category-header {
+.categories {
     background-color: #444;
+    padding: 10px 0;
+}
+
+.categories .container {
+    justify-content: center; /* Centra las categorías */
+}
+
+.category-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.category-menu li {
+    margin: 0 15px;
+}
+
+.category-menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.category-menu li a:hover {
+    text-decoration: underline;
+}
+
+.category-header {
+    background-color: #292929;
     padding: 20px 0;
     text-align: center;
 }
@@ -114,6 +145,7 @@ nav ul li a {
     color: #ffbb00;
     font-size: 2.5em;
     margin: 0;
+    
 }
 
 .features {
@@ -162,7 +194,7 @@ nav ul li a {
 
 .product-image {
     width: 100%;
-    height: 350px; /* Ajusta la altura según tus necesidades */
+    height: 400px; /* Ajusta la altura según tus necesidades */
     object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
     border: 1px solid #ffffff; /* Para simular la imagen de ejemplo */
     display: block;
