@@ -1,4 +1,3 @@
-/* Estilo de la pagina de Moda */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -135,16 +134,29 @@ nav ul li a {
     text-decoration: underline;
 }
 
-.category-header {
-    background-color: #292929;
-    padding: 20px 0;
+.hero {
+    background: url('BANER2.png') no-repeat center center/cover;
+    color: #000000;
+    padding: 100px 0;
     text-align: center;
 }
 
-.category-header h1 {
-    color: #ffbb00;
-    font-size: 2.5em;
+.hero h2 {
     margin: 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+
+.btn {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 .features {
@@ -156,17 +168,6 @@ nav ul li a {
     display: inline-block;
     width: 30%;
     margin: 0 10px;
-}
-
-.results-header {
-    padding: 20px 0;
-    text-align: center;
-}
-
-.results-header h2 {
-    color: #333;
-    font-size: 2em;
-    margin: 0;
 }
 
 .products {
@@ -193,9 +194,8 @@ nav ul li a {
 
 .product-image {
     width: 100%;
-    height: 325px; /* Ajusta la altura según tus necesidades */
-    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
-    border: 1px solid #ffffff; 
+    height: auto;
+    border: 1px solid #ffffff; /* Para simular la imagen de ejemplo */
     display: block;
     margin-bottom: 10px;
 }
@@ -217,29 +217,9 @@ nav ul li a {
     color: #868686;
 }
 
-.add-to-cart {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    width: 100%;
-}
-
-.add-to-cart img {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-}
-
 footer {
     background-color: #333;
-    color: #ffffff;
+    color: #000000;
     text-align: center;
     padding: 10px 0;
 }

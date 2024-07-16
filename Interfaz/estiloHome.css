@@ -195,7 +195,7 @@ nav ul li a {
 .product-image {
     width: 100%;
     height: auto;
-    border: 1px solid #ffffff; /* Para simular la imagen de ejemplo */
+    border: 1px solid #ffffff; 
     display: block;
     margin-bottom: 10px;
 }
