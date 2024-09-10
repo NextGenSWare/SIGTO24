@@ -9,7 +9,104 @@ body {
     align-items: center;
     min-height: 100vh;
 }
-
+/* RESPONSIVE */     
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container {
+    width: 90%;
+    max-width: 1200px; /* Limitar el ancho máximo en pantallas grandes */
+    margin: 0 auto;
+    padding: 0 15px; /* Añadir padding para mejorar la estética en pantallas pequeñas */
+  }
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column; /* Cambia a disposición vertical en pantallas medianas */
+      align-items: flex-start; 
+    }
+    
+    .search-bar {
+      width: 100%; /* Ocupar todo el ancho en pantallas pequeñas */
+    }
+    
+    .features .feature {
+      width: 45%; /* Cambiar el ancho para dos columnas en pantallas medianas */
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .products .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .product {
+      width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+      margin: 10px 0;
+    }
+  
+    nav ul {
+      flex-direction: column; /* Disposición vertical para el menú en pantallas pequeñas */
+    }
+  
+    nav ul li {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+    
+    .hero {
+      padding: 50px 0; /* Reduce el padding en pantallas más pequeñas */
+    }
+  
+    .hero h2 {
+      font-size: 2em; /* Ajusta el tamaño de la fuente */
+    }
+  
+    .hero p {
+      font-size: 1em; /* Ajusta el tamaño de la fuente */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .logo-title, .search-bar, nav {
+      flex: none;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  
+    .add-to-cart {
+      padding: 8px; /* Reducir padding en pantallas pequeñas */
+    }
+    
+    .btn {
+      padding: 8px 16px; /* Ajustar el padding de botones en pantallas pequeñas */
+    }
+  }
+  .product-image {
+    width: 100%;
+    height: auto;
+  }
+  body {
+    font-size: 16px; /* Tamaño base del texto */
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
+  }
+/* RESPONSIVE */  /*////////////////////////////////////////////////////////////////////// */
 /* Estilos del encabezado */
 header {
     background-color: #333;
