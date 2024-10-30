@@ -71,21 +71,21 @@
                 <h3>Monitor Gaming</h3>
                 <p class="price">U$S 250</p>
                 <p class="seller">Marca: ASUS</p>
-                <button class="add-to-cart"> Agregar al carrito</button>
-            </article>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Monitor Gaming', 250, 'producto1.png')">Agregar al carrito</button>
+            </article>            
             <article class="product">
                 <img src="producto2.png" alt="Producto 2" class="product-image">
                 <h3>Teclado Mecánico</h3>
                 <p class="price">U$S 50</p>
                 <p class="seller">Marca: Redragon</p>
-                <button class="add-to-cart"> Agregar al carrito</button>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Teclado Mecánico', 50, 'producto2.png')"> Agregar al carrito</button>
             </article>
             <article class="product">
                 <img src="producto3.png" alt="Producto 3" class="product-image">
                 <h3>Mouse Inalámbrico</h3>
                 <p class="price">U$S 65</p>
                 <p class="seller">Marca: Logitech</p>
-                <button class="add-to-cart"> Agregar al carrito</button>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Mouse Inalámbrico', 65, 'producto3.png')"> Agregar al carrito</button>
             </article>
             <article class="product">
                 <img src="producto4.png" alt="Producto 4" class="product-image">
@@ -110,6 +110,23 @@
             </article>
         </div>
     </section>
+
+    <script>
+        // Función para añadir un producto al carrito (con arrow function)
+        const agregarAlCarrito = (nombre, precio, imagen) => {
+            // Obtener el carrito del Local Storage
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        
+            // Añadir el nuevo producto al carrito
+            carrito.push({ nombre, precio, imagen });
+        
+            // Guardar el carrito actualizado en el Local Storage
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+        
+            // Mostrar una notificación o alerta de éxito
+            alert(`${nombre} ha sido añadido al carrito!`);
+        }
+        </script>
 
     <footer>
         <div class="container">

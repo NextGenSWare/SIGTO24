@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #cccccc;
     margin: 0;
     padding: 0;
     display: flex;
@@ -127,6 +127,34 @@ header {
     display: flex;
     align-items: center;
 }
+.login-form input,
+.login-form textarea {
+    width: calc(100% - 20px); /* Ancho igual para todos los campos */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.login-form textarea {
+    resize: none; /* Deshabilitar el redimensionamiento */
+    height: 50px; /* Ajustar la altura para que coincida con el diseño */
+}
+
+
+.login-form textarea {
+  width: calc(100% - 20px); /* Ajuste de ancho similar al de los otros campos */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none; /* Deshabilitar el redimensionamiento */
+  font-family: Arial, sans-serif; /* Asegurar la misma fuente */
+}
+
+}
+
 
 .logo {
     height: 40px;

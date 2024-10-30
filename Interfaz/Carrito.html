@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipcoin - Carrito de Compras</title>
+    <link rel="stylesheet" href="estiloCarrito.css">
+    <link rel="icon" href="coin.png">
+</head>
+<body>
+    <!-- Barra de navegación superior -->
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html"><img src="logo.png" alt="Flipcoin Logo" class="logo"></a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos...">
+                <button type="submit">Buscar</button>
+            </div>
+            <nav>
+                <ul class="right-menu">
+                    <li><a href="Carrito.html"><img src="carrito.jpg" alt="Carrito" class="cart-icon"></a></li>
+                    <li><a href="login.html">Ingresar</a></li>
+                    <li><a href="registro.html">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Título del carrito -->
+    <h1 class="titulo-carrito">Carrito de Compras</h1>
+
+    <!-- Contenido principal del carrito -->
+    <main class="main-content">
+        <!-- Columna izquierda: productos en el carrito -->
+        <section class="cart-items">
+            <h2>Mis Productos</h2>
+            
+
+            <!-- <div class="cart-item">
+                <img src="producto1.png" alt="Producto 1" class="product-image">
+                <div class="product-details">
+                    <h3>Monitor Gaming</h3>
+                    <p class="product-price">U$S 250</p>
+                    <div class="quantity-controls">
+                        <button class="btn-decrease">-</button>
+                        <input type="text" value="1" class="quantity-input">
+                        <button class="btn-increase">+</button>
+                    </div>
+                    <button class="btn-remove">Eliminar</button>
+                </div>
+            </div> 
+
+            div class="cart-item">
+                <img src="producto2.png" alt="Producto 2" class="product-image">
+                <div class="product-details">
+                    <h3>Teclado Mecánico</h3>
+                    <p class="product-price">U$S 50</p>
+                    <div class="quantity-controls">
+                        <button class="btn-decrease">-</button>
+                        <input type="text" value="1" class="quantity-input">
+                        <button class="btn-increase">+</button>
+                    </div>
+                    <button class="btn-remove">Eliminar</button>
+                </div>
+            </div> -->
+
+            
+
+        </section>
+
+        <!-- Columna derecha: resumen del pedido -->
+        <aside class="order-summary">
+            <h2>Resumen del Pedido</h2>
+            <div class="summary-item">
+                <span>Subtotal</span>
+                <span>U$S 300</span>
+            </div>
+            <div class="summary-item">
+                <span>Envío</span>
+                <span>U$S 20</span>
+            </div>
+            <div class="summary-item total">
+                <span>Total</span>
+                <span>U$S 320</span>
+            </div>
+            <button class="btn-checkout">Finalizar Compra</button>
+
+            <!-- Sección de cupón de descuento -->
+            <div class="discount-section">
+                <h3>¿Tienes un cupón de descuento?</h3>
+                <input type="text" placeholder="Ingresa tu cupón aquí">
+                <button class="btn-apply">Aplicar</button>
+            </div>
+        </aside>
+    </main>
+
+    <script>
+        // Función para añadir un producto al carrito (con arrow function)
+        const agregarAlCarrito = (nombre, precio, imagen) => {
+            // Obtener el carrito del Local Storage
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        
+            // Añadir el nuevo producto al carrito
+            carrito.push({ nombre, precio, imagen });
+        
+            // Guardar el carrito actualizado en el Local Storage
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+        
+            // Mostrar una notificación o alerta de éxito
+            alert(`${nombre} ha sido añadido al carrito!`);
+        }
+        </script>
+        
+        
+
+            
+
+<script>
+    // Función para vaciar el carrito (arrow function)
+    const vaciarCarrito = () => {
+        // Eliminar el carrito del Local Storage
+        localStorage.removeItem('carrito');
+    
+        // Recargar la página para actualizar la vista del carrito
+        cargarCarrito();
+    }
+    </script>
+
+<script>
+    // Función para cargar los productos del carrito desde el Local Storage (arrow function)
+    const cargarCarrito = () => {
+        // Obtener el carrito del Local Storage
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    
+        // Seleccionar el contenedor de los productos en el carrito
+        const contenedorCarrito = document.getElementById('cart-items');
+    
+        // Limpiar el contenido del contenedor
+        contenedorCarrito.innerHTML = '';
+    
+        // Verificar si el carrito está vacío
+        if (carrito.length === 0) {
+            contenedorCarrito.innerHTML = '<p>No hay productos en el carrito.</p>';
+            return;
+        }
+    
+        // Recorrer los productos en el carrito y crear elementos HTML para cada uno
+        carrito.forEach(producto => {
+            const itemHTML = `
+                <div class="cart-item">
+                    <img src="${producto.imagen}" alt="${producto.nombre}" class="product-image">
+                    <div class="product-details">
+                        <h3>${producto.nombre}</h3>
+                        <p class="product-price">U$S ${producto.precio}</p>
+                    </div>
+                </div>
+            `;
+            contenedorCarrito.innerHTML += itemHTML;
+        });
+    }
+    
+    // Llamar a la función para cargar el carrito al cargar la página
+    document.addEventListener('DOMContentLoaded', cargarCarrito);
+    </script>
+
+<script>
+    // Función para cargar los productos del carrito y calcular el resumen del pedido
+    const cargarCarrito = () => {
+        // Obtener el carrito del Local Storage
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    
+        // Seleccionar el contenedor de los productos en el carrito
+        const contenedorCarrito = document.getElementById('cart-items');
+        const subtotalElement = document.getElementById('subtotal');
+        const envioElement = document.getElementById('envio');
+        const totalElement = document.getElementById('total');
+    
+        // Limpiar el contenido del contenedor
+        contenedorCarrito.innerHTML = '';
+    
+        // Verificar si el carrito está vacío
+        if (carrito.length === 0) {
+            contenedorCarrito.innerHTML = '<p>No hay productos en el carrito.</p>';
+            subtotalElement.textContent = 'U$S 0';
+            envioElement.textContent = 'U$S 0';
+            totalElement.textContent = 'U$S 0';
+            return;
+        }
+    
+        // Calcular el subtotal
+        let subtotal = 0;
+    
+        // Recorrer los productos en el carrito y crear elementos HTML para cada uno
+        carrito.forEach(producto => {
+            subtotal += producto.precio;
+    
+            const itemHTML = `
+                <div class="cart-item">
+                    <img src="${producto.imagen}" alt="${producto.nombre}" class="product-image">
+                    <div class="product-details">
+                        <h3>${producto.nombre}</h3>
+                        <p class="product-price">U$S ${producto.precio}</p>
+                    </div>
+                </div>
+            `;
+            contenedorCarrito.innerHTML += itemHTML;
+        });
+    
+        // Calcular el total
+        const costoEnvio = subtotal > 0 ? 20 : 0; // Agregar costo de envío solo si hay productos
+        const total = subtotal + costoEnvio;
+    
+        // Actualizar los elementos del resumen del pedido
+        subtotalElement.textContent = `U$S ${subtotal}`;
+        envioElement.textContent = `U$S ${costoEnvio}`;
+        totalElement.textContent = `U$S ${total}`;
+    }
+    
+    // Llamar a la función para cargar el carrito al cargar la página
+    document.addEventListener('DOMContentLoaded', cargarCarrito);
+    </script>
+    
+
+<button onclick="vaciarCarrito()" class="btn-vaciar">Vaciar Carrito</button>       
+
+<section class="cart-items" id="cart-items">
+    <!-- Productos se cargarán aquí dinámicamente -->
+</section>
+
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Flipcoin. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
