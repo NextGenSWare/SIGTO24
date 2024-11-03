@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 40px; 
+    margin-right: 10px;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Para que el logo ocupe espacio y no quede pegado a la izquierda */
+}
+
+.logo {
+    height: 40px; 
+    margin-right: 10px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.inventario-section,
+.usuarios-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.tabla-inventario table,
+.tabla-usuarios table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla-inventario th, .tabla-inventario td,
+.tabla-usuarios th, .tabla-usuarios td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.btn-agregar {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.inventario-section,
+.usuarios-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.tabla-inventario table,
+.tabla-usuarios table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla-inventario th, .tabla-inventario td,
+.tabla-usuarios th, .tabla-usuarios td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.tabla-inventario th,
+.tabla-usuarios th {
+    background-color: #f0f0f0;
+}
+
+.tabla-inventario {
+    margin-bottom: 40px; /* Espacio entre las dos tablas */
+}
+
+.usuarios-section {
+    padding-top: 0; /* Evita espacio adicional arriba */
+}
+
+.btn-gestionar {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.btn-gestionar:hover {
+    background-color: #333;
+}

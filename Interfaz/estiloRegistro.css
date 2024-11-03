@@ -1,0 +1,233 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #cccccc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+/* RESPONSIVE */     
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container {
+    width: 90%;
+    max-width: 1200px; /* Limitar el ancho máximo en pantallas grandes */
+    margin: 0 auto;
+    padding: 0 15px; /* Añadir padding para mejorar la estética en pantallas pequeñas */
+  }
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column; /* Cambia a disposición vertical en pantallas medianas */
+      align-items: flex-start; 
+    }
+    
+    .search-bar {
+      width: 100%; /* Ocupar todo el ancho en pantallas pequeñas */
+    }
+    
+    .features .feature {
+      width: 45%; /* Cambiar el ancho para dos columnas en pantallas medianas */
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .products .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .product {
+      width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+      margin: 10px 0;
+    }
+  
+    nav ul {
+      flex-direction: column; /* Disposición vertical para el menú en pantallas pequeñas */
+    }
+  
+    nav ul li {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+    
+    .hero {
+      padding: 50px 0; /* Reduce el padding en pantallas más pequeñas */
+    }
+  
+    .hero h2 {
+      font-size: 2em; /* Ajusta el tamaño de la fuente */
+    }
+  
+    .hero p {
+      font-size: 1em; /* Ajusta el tamaño de la fuente */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .logo-title, .search-bar, nav {
+      flex: none;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  
+    .add-to-cart {
+      padding: 8px; /* Reducir padding en pantallas pequeñas */
+    }
+    
+    .btn {
+      padding: 8px 16px; /* Ajustar el padding de botones en pantallas pequeñas */
+    }
+  }
+  .product-image {
+    width: 100%;
+    height: auto;
+  }
+  body {
+    font-size: 16px; /* Tamaño base del texto */
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
+  }
+/* RESPONSIVE */  /*////////////////////////////////////////////////////////////////////// */
+/* Estilos del encabezado */
+header {
+    background-color: #333;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Asegura que el logo esté alineado a la izquierda */
+}
+
+/* Logo alineado a la izquierda */
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+.login-form input,
+.login-form textarea {
+    width: calc(100% - 20px); /* Ancho igual para todos los campos */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.login-form textarea {
+    resize: none; /* Deshabilitar el redimensionamiento */
+    height: 50px; /* Ajustar la altura para que coincida con el diseño */
+}
+
+
+.login-form textarea {
+  width: calc(100% - 20px); /* Ajuste de ancho similar al de los otros campos */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none; /* Deshabilitar el redimensionamiento */
+  font-family: Arial, sans-serif; /* Asegurar la misma fuente */
+}
+
+
+
+.logo {
+    height: 40px;
+}
+
+/* Sección de inicio de sesión */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.login-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+}
+
+.login-form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-form button:hover {
+    background-color: #555;
+}
+
+.login-form p {
+    margin-top: 20px;
+}
+
+.login-form a {
+    color: #333;
+    text-decoration: none;
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}

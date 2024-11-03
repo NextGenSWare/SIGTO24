@@ -187,17 +187,6 @@ nav ul li a {
     max-width: 650px; /* Limitar el ancho máximo */
 }
 
-.resultado-busqueda {
-  padding: 10px;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
-}
-.resultado-busqueda h3 {
-  margin: 0 0 5px 0;
-}
-
-
 .search-bar button {
     padding: 5px 10px;
     border: none;

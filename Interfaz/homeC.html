@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipcoin - Deportes</title>
-    <link rel="stylesheet" href="estiloDeportes.css">
+    <title>Flipcoin - Tu tienda online</title>
+    <link rel="stylesheet" href="estiloHome.css">
     <link rel="icon" href="coin.png">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo-title">
-                <a href="index.html"><img src="logo.png" alt="Flipcoin Logo" class="logo"></a>
+                <img src="logo.png" alt="Flipcoin Logo" class="logo">
             </div>
             <div class="search-bar">
                 <input type="text" placeholder="Buscar productos...">
@@ -19,9 +19,9 @@
             </div>
             <nav>
                 <ul class="right-menu">
-                    <li><a href="#"><img src="carrito.jpg" alt="Carrito" class="cart-icon"></a></li>
-                    <li><a href="#">Ingresar</a></li>
-                    <li><a href="#">Registrarse</a></li>
+                    <li><a href="Carrito.html"><img src="carrito.jpg" alt="Carrito" class="cart-icon"></a></li>
+                    <li>¡Hola!</a></li>
+                    
                 </ul>
             </nav>
         </div>
@@ -41,9 +41,9 @@
         </div>
     </nav>
 
-    <section class="category-header">
+    <section class="hero">
         <div class="container">
-            <h1>Deportes</h1>
+            
         </div>
     </section>
 
@@ -64,66 +64,61 @@
         </div>
     </section>
 
-    <section class="results-header">
-        <div class="container">
-            <h2>Resultados:</h2>
-        </div>
-    </section>
-
     <section class="products">
         <div class="container">
             <article class="product">
-                <img src="productoDeportes1.png" alt="Producto 1" class="product-image">
-                <h3>Bicicleta fija</h3>
-                <p class="price">U$S 220</p>
-                <p class="seller">Marca: Bravo</p>
-                <button class="add-to-cart"><img src="carrito.jpg" alt="Agregar al carrito"> Agregar al carrito</button>
+                <img src="producto1.png" alt="Monitor Gamer" class="product-image">
+                <h3>Monitor Gaming</h3>
+                <p class="price">U$S 250</p>
+                <p class="seller">Marca: ASUS</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Monitor Gaming', 250, 'producto1.png', 1)">Agregar al carrito</button>
+            </article>            
+            <article class="product">
+                <img src="producto2.png" alt="Teclado Mecanico Blanco" class="product-image">
+                <h3>Teclado Mecánico</h3>
+                <p class="price">U$S 50</p>
+                <p class="seller">Marca: Redragon</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Teclado Mecánico', 50, 'producto2.png' , 1)"> Agregar al carrito</button>
             </article>
             <article class="product">
-                <img src="productoDeportes2.png" alt="Producto 2" class="product-image">
-                <h3>Banco regulable</h3>
-                <p class="price">U$S 200</p>
-                <p class="seller">Marca: Matrix</p>
-                <button class="add-to-cart" onclick="agregarAlCarrito('Banco regulable', 200, 'productoDeportes2.png')"> Agregar al carrito</button>
+                <img src="producto3.png" alt="Mouse Inalámbrico Negro" class="product-image">
+                <h3>Mouse Inalámbrico</h3>
+                <p class="price">U$S 65</p>
+                <p class="seller">Marca: Logitech</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Mouse Inalámbrico', 65, 'producto3.png', 1)"> Agregar al carrito</button>
             </article>
             <article class="product">
-                <img src="productoDeportes3.png" alt="Producto 3" class="product-image">
-                <h3>Championes de fútbol - Mercurial Vapor</h3>
-                <p class="price">U$S 90</p>
-                <p class="seller">Marca: Nike</p>
-                <button class="add-to-cart" ><img src="carrito.jpg" alt="Agregar al carrito"> Agregar al carrito</button>
-            </article>
-            <article class="product">
-                <img src="productoDeportes4.png" alt="Producto 4" class="product-image">
-                <h3>Pelota de basketball</h3>
-                <p class="price">U$S 80</p>
-                <p class="seller">Marca: Spalding </p>
-                <button class="add-to-cart"><img src="carrito.jpg" alt="Agregar al carrito"> Agregar al carrito</button>
-            </article>
-            <article class="product">
-                <img src="productoDeportes5.png" alt="Producto 5" class="product-image">
-                <h3>Pelota de fútbol - Jabulani</h3>
-                <p class="price">U$S 100</p>
-                <p class="seller">Marca: Adidas</p>
-                <button class="add-to-cart"><img src="carrito.jpg" alt="Agregar al carrito"> Agregar al carrito</button>
-            </article>
-            <article class="product">
-                <img src="productoDeportes6.png" alt="Producto 6" class="product-image">
-                <h3>Camiseta de fútbol</h3>
+                <img src="producto4.png" alt="Auriculares gamer" class="product-image">
+                <h3>Audífonos Gaming</h3>
                 <p class="price">U$S 120</p>
-                <p class="seller">Marca: Nike</p>
-                <button class="add-to-cart"><img src="carrito.jpg" alt="Agregar al carrito"> Agregar al carrito</button>
+                <p class="seller">Marca: HyperX </p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Audifonos Gaming', 120, 'producto4.png', 1)"> Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="producto5.png" alt="Telefono movil" class="product-image">
+                <h3>Celular</h3>
+                <p class="price">U$S 600</p>
+                <p class="seller">Marca: Samsung</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Celular', 600, 'producto5.png', 1)"> Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="producto6.png" alt="Consola de videojuegos" class="product-image">
+                <h3>PlayStation 5</h3>
+                <p class="price">U$S 650</p>
+                <p class="seller">Marca: Sony</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('PlayStation 5', 650, 'producto6.png', 1)"> Agregar al carrito</button>
             </article>
         </div>
     </section>
+
     <script>
         // Función para añadir un producto al carrito (con arrow function)
-        const agregarAlCarrito = (nombre, precio, imagen) => {
+        const agregarAlCarrito = (nombre, precio, imagen, cantidad) => {
             // Obtener el carrito del Local Storage
             let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         
             // Añadir el nuevo producto al carrito
-            carrito.push({ nombre, precio, imagen });
+            carrito.push({ nombre, precio, imagen, cantidad });
         
             // Guardar el carrito actualizado en el Local Storage
             localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -132,6 +127,7 @@
             alert(`${nombre} ha sido añadido al carrito!`);
         }
         </script>
+
     <footer>
         <div class="container">
             <p>&copy; 2024 Flipcoin. Todos los derechos reservados.</p>
@@ -139,3 +135,4 @@
     </footer>
 </body>
 </html>
+

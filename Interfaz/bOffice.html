@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipcoin - Gestión de Inventario</title>
+    <link rel="stylesheet" href="estilobOffice.css">
+    <link rel="icon" href="coin.png">
+</head>
+<body>
+    <!-- Barra de navegación superior -->
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html"><img src="logo.png" height="40px" alt="Flipcoin Logo" class="logo"></a>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#inventario">Inventario</a></li>
+                    <li><a href="#reportes">Reportes</a></li>
+                    <li><a href="#configuracion">Configuración</a></li>
+                    <li><a href="logout.html">Cerrar sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección de gestión de inventario -->
+    <main>
+        <section id="inventario" class="inventario-section">
+            <h1>Gestión de Inventario</h1>
+            <button class="btn-agregar" onclick="mostrarFormulario()">Agregar Producto</button>
+            <div class="tabla-inventario">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-productos">
+                        <!-- Productos se cargarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <section id="gestion-usuarios" class="usuarios-section">
+                    <h2>Gestión de Usuarios</h2>
+                    <button class="btn-agregar" onclick="mostrarFormularioUsuario()">Modificar/Eliminar Usuario</button>
+                    <div class="tabla-usuarios">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Tipo de Usuario</th>
+                                    <th>Email</th>
+                                    <th>Teléfono</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-usuarios">
+                                <!-- Usuarios se cargarán aquí dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    
+
+    <!-- Formulario de producto -->
+    <div id="formulario-producto" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarFormulario()">&times;</span>
+            <h2>Agregar/Editar Producto</h2>
+            <form id="form-producto">
+                <label for="nombreProd">Nombre del Producto</label>
+                <input type="text" id="nombreProd" name="nombreProd" required>
+                <br>
+                <label for="idCategoria">Categoría (ID)</label>
+                <input type="number" id="idCategoria" name="idCategoria" required>
+                <br>
+                <label for="precio">Precio</label>
+                <input type="number" id="precio" name="precio" step="0.01" min="0" required>
+                <br>
+                <label for="descripcion">Descripción</label>
+                <input type="text" id="descripcion" name="descripcion" required>
+                <br>
+                <label for="stock">Cantidad</label>
+                <input type="number" id="stock" name="stock" required>
+                <br>
+                <button type="submit">Guardar</button>
+            </form>                       
+        </div>
+    </div>
+    
+    <!-- Formulario de gestion de usuarios -->
+    <div id="formulario-usuario" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarFormularioUsuario()">&times;</span>
+            <h2>Modificar/Eliminar Usuario</h2>
+            <form id="form-usuario">
+                <label for="idUsuario">ID del Usuario</label>
+                <input type="number" id="idUsuario" name="idUsuario" required>
+                <br>
+                <label for="nombreUsuario">Nombre del Usuario</label>
+                <input type="text" id="nombreUsuario" name="nombreUsuario" required>
+                <br>
+                <label for="tipoUsuario">Tipo de Usuario</label>
+                <select id="tipoUsuario" name="tipoUsuario" required>
+                    <option value="Comprador">Comprador</option>
+                    <option value="Vendedor">Vendedor</option>
+                    <option value="Administrador">Administrador</option>
+                </select>
+                <br>
+                <label for="emailUsuario">Correo Electrónico</label>
+                <input type="email" id="emailUsuario" name="emailUsuario" required>
+                <br>
+                <label for="telefonoUsuario">Teléfono</label>
+                <input type="text" id="telefonoUsuario" name="telefonoUsuario" required>
+                <br>
+                <button type="submit">Guardar</button>
+            </form>                       
+        </div>
+    </div>
+    
+
+    <script src="backoffice.js"></script>
+    <script src="gestionaUsuarios.js"></script>
+    <script>
+        // Manejar el envío del formulario
+        document.getElementById('form-producto').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const response = await fetch('añadir_producto.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                // Agregar el nuevo producto a la tabla
+                const tabla = document.getElementById('tabla-productos');
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${result.id}</td>
+                    <td>${result.nombreProd}</td>
+                    <td>${result.idCategoria}</td>
+                    <td>U$S ${result.precio}</td>
+                    <td>${result.stock}</td>
+                    <td><button onclick="eliminarProducto(${result.id})">Eliminar</button></td>
+                `;
+                tabla.appendChild(newRow);
+                alert(`Producto ${result.nombreProd} agregado con éxito.`);
+            } else {
+                alert('Error: ' + (result.error || 'Error desconocido'));
+            }
+
+            cerrarFormulario();
+        });
+    </script>
+</body>
+</html>

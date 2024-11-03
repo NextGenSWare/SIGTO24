@@ -12,15 +12,6 @@ body {
     height: 100vh;
 }
 
-/* Contenedor principal */
-.container {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-}
 
 /* Estilos del encabezado */
 header {
@@ -39,6 +30,17 @@ header .logo-title {
 header .logo img {
     height: 40px; 
     margin-right: 10px;
+    
+}
+
+/* Contenedor principal */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
 }
 
 /* Sección de inicio de sesión */

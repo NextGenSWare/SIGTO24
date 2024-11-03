@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar con PayPal</title>
+    <link rel="stylesheet" href="estiloPayPal.css">
+    <link rel="icon" href="coin.png">
+</head>
+<body>
+    <!-- Barra de navegación superior -->
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html"><img src="logo.png" alt="Flipcoin Logo" class="logo"></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Resumen del pedido -->
+    <div class="pedido-resumen-container">
+        <div class="pedido-resumen">
+            <h1>Resumen de tu Pedido</h1>
+            <div class="product-info">
+                <h2>Producto: <span id="productName">Nombre del Producto</span></h2>
+                <p><span class="label">Precio:</span> $<span id="productPrice">1300</span></p>
+                <p><span class="label">Cantidad:</span> <span id="productQuantity">1</span></p>
+                <p><span class="label">Dirección de Envío:</span> <span id="shippingAddress">Dirección del usuario</span></p>
+            </div>
+            <button id="pagarBtn">Pagar con PayPal</button>
+        </div>
+    </div>
+
+    <div class="resumen-pago">
+        <h3 id="precio-total">Total a pagar: U$S 0</h3>
+    </div>
+    <script src="calcularTotalCarrito.js"></script>
+    <script src="paypal.js"></script>
+
+    
+
+
+    <script>
+        document.getElementById('pagarBtn').addEventListener('click', function() {
+            fetch('./paypal_payment.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    amount: 230, // Monto a pagar
+                    currency: 'USD', // Moneda
+                    description: 'Compra de prueba'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.approvalUrl) {
+                    window.location.href = data.approvalUrl;
+                } else {
+                    console.error('Error al generar el pago:', data.error);
+                }
+            })
+            .catch(error => console.error('Error en la solicitud:', error));
+        });
+    </script>
+</body>
+</html>
