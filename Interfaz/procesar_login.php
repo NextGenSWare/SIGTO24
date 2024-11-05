@@ -1,75 +1,70 @@
 <?php
-session_start(); // Inicia la sesión
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+session_start();
 
-$host = 'localhost';
-$dbname = 'flipcoin';
-$username = 'root';
-$password = '';
+require_once 'conexion_bd.php';
 
-// Establecer la conexión con la base de datos
+header('Content-Type: application/json'); // Indicamos que la respuesta será JSON
+
+$response = ['success' => false, 'message' => '', 'redirect' => ''];
+
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Error al conectar con la base de datos: " . $e->getMessage());
-}
-
-// Verificar si se enviaron los datos mediante POST
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $password = $_POST['password'];
-
-    if (!$email || !$password) {
-        echo "Correo electrónico y contraseña son obligatorios.";
-        exit();
+    $data = json_decode(file_get_contents("php://input"), true);
+    
+    if (!isset($data['mail']) || !isset($data['password'])) {
+        throw new Exception("Correo electrónico y contraseña son obligatorios.");
     }
 
-    // Consultar en las tablas de compradores, vendedores y administradores
-    try {
-        $tablas = [
-            'comprador' => 'EmailC',
-            'vendedor' => 'EmailV',
-            'administrador' => 'EmailA'
-        ];
-        $usuarioEncontrado = false;
+    $email = $data['mail'];
+    $password = $data['password'];
 
-        foreach ($tablas as $tabla => $campoEmail) {
-            $stmt = $pdo->prepare("SELECT * FROM $tabla WHERE $campoEmail = :email");
-            $stmt->bindParam(':email', $email);
-            $stmt->execute();
+    $tablas = [
+        'comprador' => ['email' => 'EmailC', 'password' => 'ContrasenaC', 'redirect' => 'homeC.html'],
+        'vendedor' => ['email' => 'EmailV', 'password' => 'ContrasenaV', 'redirect' => 'homeV.html'],
+        'administrador' => ['email' => 'EmailA', 'password' => 'ContrasenaA', 'redirect' => 'homeA.html']
+    ];
 
-            if ($stmt->rowCount() > 0) {
-                $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-                $usuarioEncontrado = true; // Indica que el usuario fue encontrado
-                $campoContrasena = ($tabla == 'comprador') ? 'ContrasenaC' : (($tabla == 'vendedor') ? 'ContrasenaV' : 'ContrasenaA');
-            
+    $usuarioEncontrado = false;
 
-                if (password_verify($password, $usuario[$campoContrasena])) {
-                    // Guardar los datos del usuario en la sesión
-                    $_SESSION['usuario'] = [
-                        'cedula' => $usuario['C_I_C'] ?? $usuario['C_I_V'] ?? $usuario['C_I_A'],
-                        'nombre' => $usuario['UsernameC'] ?? $usuario['UsernameV'] ?? $usuario['UsernameA'],
-                        'email' => $email,
-                        'tipo' => ucfirst($tabla)
-                    ];
+    foreach ($tablas as $tabla => $campos) {
+        $stmt = $pdo->prepare("SELECT * FROM $tabla WHERE {$campos['email']} = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
 
-                    // Redirigir al usuario a la página de inicio
-                    header("Location: homeC.html");
-                    exit();
-                } else {
-                    echo "Contraseña incorrecta.";
-                    exit();
-                }
+        if ($stmt->rowCount() > 0) {
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            $usuarioEncontrado = true;
+
+            if (password_verify($password, $usuario[$campos['password']])) {
+                $_SESSION['usuario'] = [
+                    'cedula' => $usuario['C_I_' . strtoupper(substr($tabla, 0, 1))],
+                    'nombre' => $usuario['Username' . strtoupper(substr($tabla, 0, 1))],
+                    'email' => $email,
+                    'tipo' => ucfirst($tabla)
+                ];
+
+                $response['success'] = true;
+                $response['message'] = 'Login exitoso';
+                $response['redirect'] = $campos['redirect'];
+                break;
+            } else {
+                throw new Exception("Contraseña incorrecta.");
             }
         }
-
-        if (!$usuarioEncontrado) {
-            echo "No se encontró un usuario con ese correo electrónico.";
-        }
-    } catch (PDOException $e) {
-        echo "Error al consultar la base de datos: " . $e->getMessage();
     }
+
+    if (!$usuarioEncontrado) {
+        throw new Exception("No se encontró un usuario con ese correo electrónico.");
+    }
+
+} catch (Exception $e) {
+    $response['message'] = $e->getMessage();
+} catch (PDOException $e) {
+    $response['message'] = "Error de base de datos: " . $e->getMessage();
 }
 
-$pdo = null; // Cerrar la conexión a la base de datos
+echo json_encode($response);
+$pdo = null;
 ?>

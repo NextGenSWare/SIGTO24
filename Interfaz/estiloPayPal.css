@@ -7,6 +7,26 @@ body {
     background-color: #cccccc;
 }
 
+/* Barra de navegación superior */
+header {
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
 /* Contenedor principal */
 .main-content {
     max-width: 600px;
@@ -83,25 +103,7 @@ button:active {
     background-color: #333;
 }
 
-/* Barra de navegación superior */
-header {
-    background-color: #333;
-    color: #ffffff;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.logo-title {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    height: 40px;
-    margin-right: 10px;
-}
 
 /* Responsividad */
 @media (max-width: 768px) {

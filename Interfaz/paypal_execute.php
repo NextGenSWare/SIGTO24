@@ -73,6 +73,19 @@ function executePayPalPayment($paymentId, $payerId)
     // Decodificar la respuesta JSON
     $result = json_decode($response);
 
+    try {
+        if ($result->state == "approved") {
+            // Redirige a una página de éxito o muestra un mensaje de confirmación
+            echo "Pago confirmado con éxito.";
+            header("Location: confirmacion_pago.html"); // Puedes redirigir a una página de éxito
+        } else {
+            echo "El pago no fue aprobado. Por favor, intenta de nuevo.";
+        }
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
+    }
+    
+
     // Cerrar la conexión cURL
     curl_close($ch);
 

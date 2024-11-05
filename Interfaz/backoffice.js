@@ -32,7 +32,21 @@ document.getElementById('form-producto').addEventListener('submit', async (e) =>
             <td><button onclick="eliminarProducto(${result.id})">Eliminar</button></td>
         `;
         tabla.appendChild(newRow);
-        alert(`Producto ${result.nombreProd} agregado con éxito.`);
+
+        // Generar un nuevo 'article' en la página principal
+        const productsContainer = document.querySelector('.products .container');
+        const newArticle = document.createElement('article');
+        newArticle.classList.add('product');
+        newArticle.innerHTML = `
+            <img src="${result.imagen}" alt="${result.nombreProd}" class="product-image">
+            <h3>${result.nombreProd}</h3>
+            <p class="price">U$S ${result.precio}</p>
+            <p class="seller">Marca: ${result.marca}</p>
+            <button class="add-to-cart" onclick="agregarAlCarrito('${result.nombreProd}', ${result.precio}, '${result.imagen}', 1)">Agregar al carrito</button>
+        `;
+        productsContainer.appendChild(newArticle);
+
+        alert(`Producto ${result.nombreProd} agregado con éxito y publicado en la página.`);
     } else {
         alert('Error: ' + (result.error || 'Error desconocido'));
     }

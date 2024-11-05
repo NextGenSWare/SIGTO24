@@ -1,20 +1,31 @@
-// Obtener información del carrito y calcular el total
 document.addEventListener('DOMContentLoaded', () => {
-    const priceElement = document.getElementById('productPrice');
-    const quantityElement = document.getElementById('productQuantity');
-    const totalElement = document.getElementById('precio-total');
-
-    if (priceElement && quantityElement && totalElement) {
-        const price = parseFloat(priceElement.textContent);
-        const quantity = parseInt(quantityElement.textContent, 10);
-        
-        if (!isNaN(price) && !isNaN(quantity)) {
-            const total = price * quantity;
-            totalElement.textContent = `Total a pagar: U$S ${total.toFixed(2)}`;
-        } else {
-            console.error('Error al calcular el total. Verifica los datos del producto.');
+    document.getElementById('pagarBtn').addEventListener('click', function() {
+        const total = parseFloat(document.getElementById('productPrice').textContent);
+        if (isNaN(total) || total <= 0) {
+            alert('El total no es válido para realizar un pago.');
+            return;
         }
-    } else {
-        console.error('No se encontraron los elementos necesarios para mostrar el total.');
-    }
+
+        fetch('./paypal_payment.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                amount: total,
+                currency: 'USD',
+                description: 'Compra de productos en Flipcoin'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.approvalUrl) {
+                window.location.href = data.approvalUrl;
+            } else {
+                console.error('Error al generar el pago:', data.error);
+                alert(data.error || 'Error desconocido al procesar el pago.');
+            }
+        })
+        .catch(error => console.error('Error en la solicitud:', error));
+    });
 });
