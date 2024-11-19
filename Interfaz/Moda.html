@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadatos de la página -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Vista responsiva -->
+    <title>Flipcoin - Moda</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="estiloModa.css"> <!-- Enlace al archivo de estilos -->
+    <link rel="icon" href="coin.png"> <!-- Icono de la página -->
+</head>
+<body>
+    <!-- Encabezado de la página -->
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html"><img src="logo.png" alt="Flipcoin Logo" class="logo"></a> <!-- Logo con enlace al inicio -->
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos..."> <!-- Barra de búsqueda -->
+                <button type="submit">Buscar</button> <!-- Botón de búsqueda -->
+            </div>
+            <nav>
+                <ul class="right-menu">
+                    <!-- Opciones del menú de navegación -->
+                    <li><a href="Carrito.html"><img src="carrito.jpg" alt="Carrito" class="cart-icon"></a></li>
+                    <li><a href="login.html">Ingresar</a></li>
+                    <li><a href="registro.html">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menú de categorías -->
+    <nav class="categories">
+        <div class="container">
+            <ul class="category-menu">
+                <li><a href="Electronica.html">Electrónica</a></li>
+                <li><a href="Moda.html">Moda</a></li>
+                <li><a href="Hogar.html">Hogar</a></li>
+                <li><a href="Juguetes.html">Juguetes</a></li>
+                <li><a href="Deportes.html">Deportes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Encabezado de la categoría -->
+    <section class="category-header">
+        <div class="container">
+            <h1>Moda</h1> <!-- Título de la categoría -->
+        </div>
+    </section>
+
+    <!-- Sección de características -->
+    <section class="features">
+        <div class="container">
+            <!-- Característica de envío rápido -->
+            <div class="feature">
+                <h3>Envío rápido <img src="envio.png" height="25" width="25"></h3>
+                <p>Recibe tus productos en tiempo récord.</p>
+            </div>
+            <!-- Característica de seguridad -->
+            <div class="feature">
+                <h3>Seguridad <img src="seguridad.png" height="25" width="25"></h3>
+                <p>Compras 100% seguras.</p>
+            </div>
+            <!-- Característica de calidad -->
+            <div class="feature">
+                <h3>Calidad <img src="certificado.png" height="25" width="25"></h3>
+                <p>Productos de alta calidad garantizados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Encabezado de resultados -->
+    <section class="results-header">
+        <div class="container">
+            <h2>Resultados:</h2> <!-- Título de la sección de resultados -->
+        </div>
+    </section>
+
+    <!-- Sección de productos -->
+    <section class="products">
+        <div class="container">
+            <!-- Cada producto se presenta como un artículo -->
+            <article class="product">
+                <img src="productoModa1.png" alt="Producto 1" class="product-image">
+                <h3>Zapatillas</h3>
+                <p class="price">U$S 200</p>
+                <p class="seller">Marca: Nike-Jordan</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Zapatillas', 200, 'productoModa1.png', 1)">Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="productoModa2.png" alt="Producto 2" class="product-image">
+                <h3>Sandalias</h3>
+                <p class="price">U$S 50</p>
+                <p class="seller">Marca: Adidas</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Sandalias', 50, 'productoModa2.png', 1)">Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="productoModa3.png" alt="Producto 3" class="product-image">
+                <h3>Camperon</h3>
+                <p class="price">U$S 45</p>
+                <p class="seller">Marca: Joma</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Camperon', 45, 'productoModa3.png', 1)">Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="productoModa4.png" alt="Producto 4" class="product-image">
+                <h3>Babucha</h3>
+                <p class="price">U$S 20</p>
+                <p class="seller">Marca: Hering</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Babucha', 20, 'productoModa4.png', 1)">Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="productoModa5.png" alt="Producto 5" class="product-image">
+                <h3>Gorro</h3>
+                <p class="price">U$S 15</p>
+                <p class="seller">Marca: Kfiolos</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Gorro', 15, 'productoModa5.png', 1)">Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="productoModa6.png" alt="Producto 6" class="product-image">
+                <h3>Remera básica</h3>
+                <p class="price">U$S 15</p>
+                <p class="seller">Marca: Hering</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Remera básica', 15, 'productoModa6.png', 1)">Agregar al carrito</button>
+            </article>
+        </div>
+    </section>
+    <script>
+        // Función para añadir un producto al carrito (con arrow function)
+        const agregarAlCarrito = (nombre, precio, imagen, cantidad) => {
+            // Obtener el carrito del Local Storage
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        
+            // Añadir el nuevo producto al carrito
+            carrito.push({ nombre, precio, imagen, cantidad });
+        
+            // Guardar el carrito actualizado en el Local Storage
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+        
+            // Mostrar una notificación o alerta de éxito
+            alert(`${nombre} ha sido añadido al carrito!`);
+        }
+    </script>
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Flipcoin. Todos los derechos reservados.</p> <!-- Derechos de autor -->
+        </div>
+    </footer>
+</body>
+</html>

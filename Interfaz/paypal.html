@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos y configuración de la página -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuración responsive -->
+    <title>Pagar con PayPal</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="estiloPayPal.css"> <!-- Enlace a la hoja de estilos -->
+    <link rel="icon" href="coin.png"> <!-- Icono de la página -->
+</head>
+<body>
+    <!-- Encabezado de la página con el logo -->
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html"><img src="logo.png" height="40px" alt="Flipcoin Logo" class="logo"></a> <!-- Logo de la página con enlace al inicio -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de resumen del pedido -->
+    <div class="pedido-resumen-container">
+        <div class="pedido-resumen">
+            <h1>Resumen de tu Pedido</h1> <!-- Título de la sección -->
+            <div class="product-info">
+                <!-- Información del producto -->
+                <h2><span id="precio-total">Total a pagar: U$S 0:</span></h2>
+            </div>
+            <button id="pagarBtn">Pagar con PayPal</button> <!-- Botón para iniciar el pago con PayPal -->
+        </div>
+    </div>
+
+    <!-- Script para manejar la interacción con PayPal -->
+    <script>
+            // Obtener el carrito del localStorage
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    let total = 20;
+
+    // Calcular el total sumando los precios de los productos
+    carrito.forEach(producto => {
+        total += producto.precio * producto.cantidad; // Asume que el objeto producto tiene un campo cantidad
+    });
+
+    // Mostrar el total en la página
+    document.getElementById('precio-total').textContent = `Total a pagar: U$S ${total.toFixed(2)}`;
+        // Asignación de evento de clic al botón de pago
+        document.getElementById('pagarBtn').addEventListener('click', function() {
+            // Realiza una solicitud POST al archivo PHP que gestiona el pago
+            fetch('./paypal_payment.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    amount:total, // Monto a pagar (actualizar dinámicamente en un entorno real)
+                    currency: 'USD', // Moneda de la transacción
+                    description: 'Compra a FLIPCOIN' // Descripción de la transacción
+                })
+            })
+            .then(response => response.json()) // Convierte la respuesta a JSON
+            .then(data => {
+                if (data.approvalUrl) {
+                    // Redirige al usuario a la URL de aprobación de PayPal si se genera correctamente
+                    window.location.href = data.approvalUrl;
+                } else {
+                    // Muestra un error en caso de fallo
+                    console.error('Error al generar el pago:', data.error);
+                }
+            })
+            .catch(error => console.error('Error en la solicitud:', error)); // Manejo de errores en la solicitud
+        });
+    </script>
+
+    <!-- Scripts adicionales -->
+    <script src="calcularTotalCarrito.js"></script> <!-- Script para calcular el total del carrito -->
+    <script src="paypal.js"></script> <!-- Script de integración de PayPal -->
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadatos y configuración de la página -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuración responsive -->
+    <title>Flipcoin - Juguetes</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="estiloJuguetes.css"> <!-- Enlace a la hoja de estilos específica de la página -->
+    <link rel="icon" href="coin.png"> <!-- Favicon de la página -->
+</head>
+<body>
+    <!-- Encabezado de la página -->
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html"><img src="logo.png" alt="Flipcoin Logo" class="logo"></a> <!-- Logo y enlace a la página de inicio -->
+            </div>
+            <!-- Barra de búsqueda -->
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos..."> <!-- Campo de entrada de texto para buscar productos -->
+                <button type="submit">Buscar</button> <!-- Botón de búsqueda -->
+            </div>
+            <!-- Menú de navegación -->
+            <nav>
+                <ul class="right-menu">
+                    <li><a href="Carrito.html"><img src="carrito.jpg" alt="Carrito" class="cart-icon"></a></li> <!-- Icono y enlace al carrito -->
+                    <li><a href="login.html">Ingresar</a></li> <!-- Enlace para iniciar sesión -->
+                    <li><a href="registro.html">Registrarse</a></li> <!-- Enlace para registrarse -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Barra de categorías -->
+    <nav class="categories">
+        <div class="container">
+            <ul class="category-menu">
+                <li><a href="Electronica.html">Electrónica</a></li>
+                <li><a href="Moda.html">Moda</a></li>
+                <li><a href="Hogar.html">Hogar</a></li>
+                <li><a href="Juguetes.html">Juguetes</a></li>
+                <li><a href="Deportes.html">Deportes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Encabezado de la categoría -->
+    <section class="category-header">
+        <div class="container">
+            <h1>Juguetes</h1> <!-- Título de la sección de juguetes -->
+        </div>
+    </section>
+
+    <!-- Sección de características destacadas -->
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <h3>Envío rápido <img src="envio.png" height="25" width="25"></h3>
+                <p>Recibe tus productos en tiempo récord.</p>
+            </div>
+            <div class="feature">
+                <h3>Seguridad <img src="seguridad.png" height="25" width="25"></h3>
+                <p>Compras 100% seguras.</p>
+            </div>
+            <div class="feature">
+                <h3>Calidad <img src="certificado.png" height="25" width="25"></h3>
+                <p>Productos de alta calidad garantizados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Encabezado de los resultados -->
+    <section class="results-header">
+        <div class="container">
+            <h2>Resultados:</h2> <!-- Título de la sección de productos -->
+        </div>
+    </section>
+
+    <!-- Sección de productos -->
+    <section class="products">
+        <div class="container">
+            <!-- Artículos de productos -->
+            <article class="product">
+                <img src="productoJuguetes1.png" alt="Producto 1" class="product-image">
+                <h3>Autito</h3>
+                <p class="price">U$S 5</p>
+                <p class="seller">Marca: HotWheels</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Autito', 5, 'productoJuguetes1.png', 1)">Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="productoJuguetes2.png" alt="Producto 2" class="product-image">
+                <h3>Rompecabezas</h3>
+                <p class="price">U$S 30</p>
+                <p class="seller">Marca: LEGO</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Rompecabezas', 30, 'productoJuguetes2.png', 1)">Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="productoJuguetes3.jpg" alt="Producto 3" class="product-image">
+                <h3>Transformer</h3>
+                <p class="price">U$S 60</p>
+                <p class="seller">Marca: Mattel</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Transformer', 60, 'productoJuguetes3.jpg', 1)">Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="productoJuguetes4.png" alt="Producto 4" class="product-image">
+                <h3>Helicoptero RC</h3>
+                <p class="price">U$S 100</p>
+                <p class="seller">Marca: RKSTD</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Helicoptero RC', 15, 'productoJuguetes4.png', 1)">Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="productoJuguetes5.png" alt="Producto 5" class="product-image">
+                <h3>Funko-Pop</h3>
+                <p class="price">U$S 20</p>
+                <p class="seller">Marca: Pop!</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Funko-Pop', 20, 'productoJuguetes5.png', 1)">Agregar al carrito</button>
+            </article>
+            <article class="product">
+                <img src="productoJuguetes6.png" alt="Producto 6" class="product-image">
+                <h3>Puzzle</h3>
+                <p class="price">U$S 22</p>
+                <p class="seller">Marca: D-Toys</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Puzzle', 22, 'productoJuguetes6.png', 1)">Agregar al carrito</button>
+            </article>
+        </div>
+    </section>
+    <script>
+        // Función para añadir un producto al carrito (con arrow function)
+        const agregarAlCarrito = (nombre, precio, imagen, cantidad) => {
+            // Obtener el carrito del Local Storage
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        
+            // Añadir el nuevo producto al carrito
+            carrito.push({ nombre, precio, imagen, cantidad });
+        
+            // Guardar el carrito actualizado en el Local Storage
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+        
+            // Mostrar una notificación o alerta de éxito
+            alert(`${nombre} ha sido añadido al carrito!`);
+        }
+    </script>
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Flipcoin. Todos los derechos reservados.</p> <!-- Derechos de autor -->
+        </div>
+    </footer>
+</body>
+</html>

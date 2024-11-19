@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadatos y configuración inicial de la página -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Optimización para dispositivos móviles -->
+    <title>Flipcoin - Electrónica</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="estiloElectronica.css"> <!-- Enlace a la hoja de estilo específica -->
+    <link rel="icon" href="coin.png"> <!-- Favicon de la página -->
+</head>
+<body>
+    <!-- Encabezado con logo, barra de búsqueda y menú de navegación -->
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html"><img src="logo.png" alt="Flipcoin Logo" class="logo"></a> <!-- Enlace al logo que redirige al inicio -->
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos..."> <!-- Barra de búsqueda -->
+                <button type="submit">Buscar</button> <!-- Botón de búsqueda -->
+            </div>
+            <nav>
+                <ul class="right-menu"> <!-- Menú de opciones a la derecha -->
+                    <li><a href="Carrito.html"><img src="carrito.jpg" alt="Carrito" class="cart-icon"></a></li> <!-- Icono de carrito -->
+                    <li><a href="login.html">Ingresar</a></li> <!-- Enlace para iniciar sesión -->
+                    <li><a href="registro.html">Registrarse</a></li> <!-- Enlace para registrarse -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menú de navegación de categorías -->
+    <nav class="categories">
+        <div class="container">
+            <ul class="category-menu"> <!-- Lista de categorías -->
+                <li><a href="Electronica.html">Electrónica</a></li>
+                <li><a href="Moda.html">Moda</a></li>
+                <li><a href="Hogar.html">Hogar</a></li>
+                <li><a href="Juguetes.html">Juguetes</a></li>
+                <li><a href="Deportes.html">Deportes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Encabezado de la sección de electrónica -->
+    <section class="category-header">
+        <div class="container">
+            <h1>Electrónica</h1> <!-- Título de la sección -->
+        </div>
+    </section>
+
+    <!-- Sección de características destacadas -->
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <h3>Envío rápido <img src="envio.png" height="25" width="25"></h3> <!-- Detalle con ícono -->
+                <p>Recibe tus productos en tiempo récord.</p> <!-- Descripción del servicio -->
+            </div>
+            <div class="feature">
+                <h3>Seguridad <img src="seguridad.png" height="25" width="25"></h3>
+                <p>Compras 100% seguras.</p>
+            </div>
+            <div class="feature">
+                <h3>Calidad <img src="certificado.png" height="25" width="25"></h3>
+                <p>Productos de alta calidad garantizados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Encabezado de resultados de productos -->
+    <section class="results-header">
+        <div class="container">
+            <h2>Resultados:</h2> <!-- Subtítulo de la sección de productos -->
+        </div>
+    </section>
+
+    <!-- Sección de productos con detalles -->
+    <section class="products">
+        <div class="container">
+            <!-- Producto 1 -->
+            <article class="product">
+                <img src="producto1.png" alt="Producto 1" class="product-image"> <!-- Imagen del producto -->
+                <h3>Monitor Gaming</h3> <!-- Nombre del producto -->
+                <p class="price">U$S 250</p> <!-- Precio del producto -->
+                <p class="seller">Marca: ASUS</p> <!-- Marca del producto -->
+                <button class="add-to-cart" onclick="agregarAlCarrito('Monitor Gamer', 250, 'producto1.png', 1)">Agregar al carrito</button> <!-- Botón de acción -->
+            </article>
+            <!-- Producto 2 -->
+            <article class="product">
+                <img src="producto2.png" alt="Producto 2" class="product-image">
+                <h3>Teclado Mecánico</h3>
+                <p class="price">U$S 50</p>
+                <p class="seller">Marca: Redragon</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Teclado mecánico', 50, 'producto2.png', 1)">Agregar al carrito</button>
+            </article>
+            <!-- Producto 3 -->
+            <article class="product">
+                <img src="producto3.png" alt="Producto 3" class="product-image">
+                <h3>Mouse Inalámbrico</h3>
+                <p class="price">U$S 65</p>
+                <p class="seller">Marca: Logitech</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Mouse Inalámbrico', 65, 'producto3.png', 1)">Agregar al carrito</button>            
+            </article>
+            <!-- Producto 4 -->
+            <article class="product">
+                <img src="producto4.png" alt="Producto 4" class="product-image">
+                <h3>Audífonos Gaming</h3>
+                <p class="price">U$S 120</p>
+                <p class="seller">Marca: HyperX</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Audifonos Gaming', 120, 'producto4.png', 1)">Agregar al carrito</button>            
+            </article>
+            <!-- Producto 5 -->
+            <article class="product">
+                <img src="producto5.png" alt="Producto 5" class="product-image">
+                <h3>Celular</h3>
+                <p class="price">U$S 600</p>
+                <p class="seller">Marca: Samsung</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('Celular', 600, 'producto5.png', 1)">Agregar al carrito</button>
+            </article>
+            <!-- Producto 6 -->
+            <article class="product">
+                <img src="producto6.png" alt="Producto 6" class="product-image">
+                <h3>PlayStation 5</h3>
+                <p class="price">U$S 650</p>
+                <p class="seller">Marca: Sony</p>
+                <button class="add-to-cart" onclick="agregarAlCarrito('PlayStation5', 650, 'producto6.png', 1)">Agregar al carrito</button>
+           </article>
+        </div>
+    </section>
+ <!-- Script para añadir productos al carrito -->
+ <script>
+    // Función para añadir un producto al carrito (con arrow function)
+    const agregarAlCarrito = (nombre, precio, imagen, cantidad) => {
+        // Obtener el carrito del Local Storage
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    
+        // Añadir el nuevo producto al carrito
+        carrito.push({ nombre, precio, imagen, cantidad });
+    
+        // Guardar el carrito actualizado en el Local Storage
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+    
+        // Mostrar una notificación o alerta de éxito
+        alert(`${nombre} ha sido añadido al carrito!`);
+    }
+</script>
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Flipcoin. Todos los derechos reservados.</p> <!-- Derechos de autor -->
+        </div>
+    </footer>
+</body>
+</html>
